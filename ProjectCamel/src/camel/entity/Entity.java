@@ -1,13 +1,14 @@
 package camel.entity;
 
-public class Entity {
+public class Entity implements Runnable{
 	protected int posx, posy, posz, post;
 	protected double maxhp, hp, damage, foodval, weight, sellval, timestamp, exp;
 	protected String name;
 	protected float range;
 	protected boolean muted = false, playercreated, stable;
 	public Entity() {
-	
+		Thread t = new Thread(this);
+		t.run();
 	}
 	public double getKilledExp() {
 		return exp;
@@ -29,6 +30,10 @@ public class Entity {
 		
 	}
 	public void levelUp() {
+		
+	}
+	@Override
+	public void run() {
 		
 	}
 }
